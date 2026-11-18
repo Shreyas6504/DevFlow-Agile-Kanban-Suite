@@ -1,0 +1,159 @@
+/* ==========================================================================
+   DevFlow Kanban - Main Stylesheet
+   Design: Modern Dark Glassmorphism, Linear-style Kanban UI
+   ========================================================================== */
+
+:root {
+  --font-main: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'Fira Code', monospace;
+
+  --bg-body: #0d1117;
+  --bg-card: rgba(22, 27, 34, 0.85);
+  --bg-column: rgba(13, 17, 23, 0.65);
+  --border-color: rgba(255, 255, 255, 0.08);
+  --border-hover: rgba(56, 189, 248, 0.35);
+
+  --priority-critical: #ef4444;
+  --priority-high: #f97316;
+  --priority-medium: #38bdf8;
+  --priority-low: #94a3b8;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg-body);
+  color: #f1f5f9;
+  overflow-x: hidden;
+}
+
+.font-monospace {
+  font-family: var(--font-mono) !important;
+}
+
+.glass-navbar {
+  background: rgba(13, 17, 23, 0.85);
+  backdrop-filter: blur(12px);
+}
+
+.glass-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(10px);
+}
+
+.brand-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+}
+
+/* Kanban Columns */
+.kanban-board {
+  min-height: calc(100vh - 150px);
+}
+
+.kanban-column {
+  flex: 0 0 310px;
+  min-width: 290px;
+  background-color: var(--bg-column);
+  min-height: 550px;
+  display: flex;
+  flex-direction: column;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.kanban-column.drag-over {
+  background-color: rgba(56, 189, 248, 0.08) !important;
+  border-color: #38bdf8 !important;
+  border-style: dashed !important;
+}
+
+.column-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.cards-container {
+  min-height: 200px;
+  flex-grow: 1;
+}
+
+/* Kanban Task Card */
+.task-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 12px;
+  cursor: grab;
+  user-select: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
+}
+
+.task-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-hover);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+.task-card.dragging {
+  opacity: 0.4;
+  cursor: grabbing;
+}
+
+.card-actions {
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.task-card:hover .card-actions {
+  opacity: 1;
+}
+
+/* Priority Badges */
+.badge-priority-critical {
+  background-color: rgba(239, 68, 68, 0.15);
+  color: #fca5a5;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.badge-priority-high {
+  background-color: rgba(249, 115, 22, 0.15);
+  color: #fdba74;
+  border: 1px solid rgba(249, 115, 22, 0.3);
+}
+
+.badge-priority-medium {
+  background-color: rgba(56, 189, 248, 0.15);
+  color: #7dd3fc;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+.badge-priority-low {
+  background-color: rgba(148, 163, 184, 0.15);
+  color: #cbd5e1;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+}
+
+/* Tag Pill */
+.task-tag {
+  font-size: 0.65rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 2px 6px;
+  color: #94a3b8;
+}
+
+/* Empty column state */
+.empty-placeholder {
+  border: 1px dashed var(--border-color);
+  border-radius: 8px;
+  padding: 24px 12px;
+  text-align: center;
+  color: #64748b;
+  font-size: 0.8rem;
+  pointer-events: none;
+}
