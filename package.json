@@ -1,0 +1,27 @@
+{
+  "name": "devflow-agile-kanban-suite",
+  "version": "1.0.0",
+  "description": "Full-stack Agile task management & sprint analytics platform built with React, Node.js, Express, and Chart.js",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node --test tests/api.test.js"
+  },
+  "keywords": [
+    "react",
+    "nodejs",
+    "express",
+    "javascript",
+    "agile",
+    "kanban",
+    "sprint-analytics",
+    "rest-api",
+    "chartjs"
+  ],
+  "author": "Shreyas Shetty <jshreyasshetty@gmail.com> (https://github.com/Shreyas6504)",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
